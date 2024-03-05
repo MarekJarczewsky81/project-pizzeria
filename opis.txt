@@ -1,0 +1,6 @@
+Naszą pierwszą klasą (schematem) będzie Product. Każdy produkt w menu naszej pizzerii będzie instancją tej klasy. Będzie ona odpowiedzialna za:
+
+dodanie produktu do menu na stronie, wykorzystując szablon Handlebars,
+uruchomienie akordeonu, czyli funkcjonalności pokazywanie i ukrywanie opcji produktu,
+obliczanie ceny produktu z wybranymi opcjami.
+
