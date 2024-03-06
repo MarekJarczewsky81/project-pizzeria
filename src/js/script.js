@@ -60,6 +60,7 @@ const select = {
       thisProduct.data = data;
 
       thisProduct.renderInMenu();
+      thisProduct.initAccordion();
 
       console.log('new Product:', thisProduct);
     }
@@ -80,10 +81,14 @@ const select = {
       menuContainer.appendChild(thisProduct.element);
 
     }
+
+    initAccordion(){
+      const thisProduct = this;
+    }
   }
 
   const app = {
-    
+
     initData: function () {
       const thisApp = this;
 
