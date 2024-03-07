@@ -62,6 +62,8 @@ const select = {
       thisProduct.renderInMenu();
       thisProduct.getElements();
       thisProduct.initAccordion();
+      thisProduct.initOrderForm();
+      thisProduct.processOrder();
 
       console.log("new Product:", thisProduct);
     }
@@ -109,6 +111,16 @@ const select = {
       });
     }
     
+    initOrderForm() {
+      const thisProduct = this;
+      console.log('initOrderForm:', thisProduct);
+    }
+
+    processOrder()  {
+      const thisProduct = this;
+      console.log("processOrder:", thisProduct);
+    }
+
     getElements() {
       const thisProduct = this;
 
