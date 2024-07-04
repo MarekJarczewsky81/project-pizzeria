@@ -74,9 +74,9 @@ const select = {
 
       thisProduct.amountWidget = new AmountWidget(thisProduct.amountWidgetElem);
 
-    //   thisProduct.amountWidgetElem.addEventListener("updated", function () {
-    //     thisProduct.processOrder();
-    //   });
+      thisProduct.amountWidgetElem.addEventListener("updated", function () {
+        thisProduct.processOrder();
+      });
     }
 
     renderInMenu() {
@@ -179,7 +179,9 @@ const select = {
           }
         }
       }
-
+      // multiply price by amount
+      price *= thisProduct.amountWidget.value;
+      // update displayed price
       thisProduct.priceElem.innerHTML = price;
     }
 
@@ -222,6 +224,13 @@ const select = {
       console.log("constructor arguments:", element);
     }
 
+    announce() {
+      const thisWidget = this;
+
+      const event = new Event("updated");
+      thisWidget.element.dispatchEvent(event);
+    }
+
     initActions() {
       const thisWidget = this;
 
@@ -260,12 +269,15 @@ const select = {
 
     setValue(value) {
       const thisWidget = this;
+
       const newValue = parseInt(value);
+
       const minValue = settings.amountWidget.defaultMin;
       const maxValue = settings.amountWidget.defaultMax;
 
       if (!isNaN(newValue) && thisWidget.value !== newValue) {
         thisWidget.value = Math.max(minValue, Math.min(newValue, maxValue));
+        thisWidget.announce();
       }
 
       thisWidget.input.value = thisWidget.value;
